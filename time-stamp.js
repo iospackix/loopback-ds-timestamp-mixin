@@ -46,12 +46,14 @@ exports.default = function (Model) {
   Model.defineProperty(options.createdAt, {
     type: Date,
     required: options.required,
-    defaultFn: 'now'
+    defaultFn: 'now',
+    index: true
   });
 
   Model.defineProperty(options.updatedAt, {
     type: Date,
-    required: options.required
+    required: options.required,
+    index: true
   });
 
   Model.observe('before save', function (ctx, next) {
